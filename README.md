@@ -1,2 +1,3 @@
 # HIDAPIpp
-HIDAPI c++ wrapper
+
+This is a C++ wrapper for HIDAPI library. 
