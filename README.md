@@ -1,0 +1,2 @@
+# HIDAPIpp
+HIDAPI c++ wrapper
