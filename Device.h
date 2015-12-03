@@ -113,6 +113,20 @@ template <typename Derived> class DeviceBase {
         return handle_buffer(std::move(data), result);
     }
 
+    /// Writes an output HID report
+    ///
+    /// The first byte of data[] has to contain Report ID. Hence the report
+    /// size will contain one additional byte with Report ID. If your report
+    /// is 8 bytes, then you must pass 9 bytes - Report ID plus 8 bytes of 
+    /// report data.
+	/// Returns the number of bytes written or -1 if failed
+    ///
+    int write(const unsigned char* data, std::size_t length) {
+      auto result = hid_write(get(), data, length);
+      return result;
+    }
+
+
     /// Gets a HID feature report.
     ///
     /// The supplied report ID will be the first byte of the returned data
